@@ -1,9 +1,5 @@
 # 2026-VK-EDU-Web-08B09-Dobrynin-I
 
-## Домашние задания
-- [Техническое задание](homeworks/markdown/technical_details.md)
-- [Домашнее задание 1](homeworks/markdown/task-1.md)
-
 ## Запуск статической верстки
 Открыть [public/index.html](public/index.html) в браузере.
 
