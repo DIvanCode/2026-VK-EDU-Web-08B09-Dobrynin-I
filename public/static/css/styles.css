@@ -111,6 +111,10 @@ a:hover {
   padding: 1.25rem;
 }
 
+.question-layout > .flex-grow-1 {
+  min-width: 0;
+}
+
 .vote-panel {
   min-width: 0;
   display: flex;
@@ -207,6 +211,24 @@ a:hover {
 .footer-shell {
   border-top: 1px solid var(--border);
   background: #ffffff;
+}
+
+.question-title-clamp,
+.question-description-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.question-title-clamp {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.question-description-clamp {
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
 }
 
 @media (max-width: 991.98px) {
