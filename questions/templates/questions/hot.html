@@ -1,0 +1,30 @@
+{% extends "questions/base.html" %}
+
+{% block title %}AskPupkin | Hot Questions{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <h1 class="h2 mb-0">Hot Questions</h1>
+      <a href="{% url 'questions:index' %}">New Questions</a>
+    </div>
+  </div>
+
+  <div class="d-grid gap-4">
+    {% for question in questions %}
+      {% include "questions/includes/question_card.html" %}
+    {% endfor %}
+  </div>
+
+  <nav class="mt-4" aria-label="Questions pagination">
+    <ul class="pagination mb-0 flex-wrap">
+      {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number %}
+          <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="{% url 'questions:hot' %}?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}

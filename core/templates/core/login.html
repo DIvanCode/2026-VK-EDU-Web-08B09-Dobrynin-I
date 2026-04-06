@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+
+{% block title %}AskPupkin | Login{% endblock %}
+
+{% block content %}
+  <section class="form-shell">
+    <h1 class="h2 mb-4">Log In</h1>
+    <form action="{% url 'questions:index' %}">
+      <p class="text-danger mb-3">Sorry, wrong password!</p>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="login-name">Login</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <input id="login-name" class="form-control is-invalid" type="text" value="Enter your login here">
+          <div class="invalid-feedback d-block">Enter a valid login.</div>
+        </div>
+      </div>
+      <div class="row mb-4 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="login-pass">Password</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <input id="login-pass" class="form-control is-invalid" type="password" value="password">
+          <div class="invalid-feedback d-block">Password is incorrect.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-9 offset-sm-3">
+          <button class="btn btn-accent" type="submit">Log in!</button>
+          <div class="mt-3">
+            <a href="{% url 'core:signup' %}">create new account</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+{% endblock %}
+

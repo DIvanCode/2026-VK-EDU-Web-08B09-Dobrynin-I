@@ -1,0 +1,81 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}AskPupkin{% endblock %}</title>
+    <link rel="icon" href="{% static 'img/icon.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <div class="container py-3">
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-xl-3">
+            <a class="brand-link" href="{% url 'questions:index' %}">
+              <span>AskPupkin</span>
+            </a>
+          </div>
+          <div class="col-12 col-md-7 col-xl-5">
+            <form class="d-flex gap-2" action="{% url 'questions:index' %}">
+              <input class="form-control search-input" type="search" placeholder="Search">
+              <button class="btn btn-outline-accent flex-shrink-0" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col-12 col-md-5 col-xl-4">
+            <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-xl-end gap-3">
+              <a class="btn btn-accent" href="{% url 'questions:ask' %}">ASK!</a>
+              <div class="d-flex align-items-center gap-2 gap-sm-3">
+                <a href="{% url 'core:login' %}">log in</a>
+                <a href="{% url 'core:signup' %}">register</a>
+                <a href="{% url 'core:profile' %}">profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-4 py-lg-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-xl-8">
+            <section class="content-card p-4 p-lg-5">
+              {% block content %}{% endblock %}
+            </section>
+          </div>
+
+          <div class="col-12 col-xl-4">
+            <div class="d-grid gap-4">
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Popular tags</h2>
+                <div class="tag-cloud">
+                  {% for tag in popular_tags %}
+                    <a href="{% url 'questions:tag' tag.slug %}">{{ tag.name }}</a>
+                  {% endfor %}
+                </div>
+              </aside>
+
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Best members</h2>
+                <div class="member-list">
+                  {% for member in best_members %}
+                    <div class="member-item"><a href="{% url 'questions:index' %}">{{ member }}</a></div>
+                  {% endfor %}
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-shell py-4">
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 muted-text">
+        <span>Footer</span>
+      </div>
+    </footer>
+  </body>
+</html>

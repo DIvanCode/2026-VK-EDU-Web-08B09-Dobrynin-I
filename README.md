@@ -3,6 +3,11 @@
 ## Запуск статической верстки
 Открыть [public/index.html](public/index.html) в браузере.
 
+## Запуск Django проекта
+```bash
+python manage.py runserver
+```
+
 ## Страницы
 - `public/base.html` -- базовая верстка
 - `public/index.html`

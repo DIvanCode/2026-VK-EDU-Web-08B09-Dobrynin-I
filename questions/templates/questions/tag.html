@@ -1,0 +1,30 @@
+{% extends "questions/base.html" %}
+
+{% block title %}AskPupkin | Tag{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <h1 class="h2 mb-0">Tag: {{ tag_name }}</h1>
+    </div>
+  </div>
+
+  <div class="d-grid gap-4">
+    {% for question in questions %}
+      {% include "questions/includes/question_card.html" %}
+    {% endfor %}
+  </div>
+
+  <nav class="mt-4" aria-label="Questions pagination">
+    <ul class="pagination mb-0 flex-wrap">
+      {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number %}
+          <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="{% url 'questions:tag' tag_name %}?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+{% endblock %}
+
