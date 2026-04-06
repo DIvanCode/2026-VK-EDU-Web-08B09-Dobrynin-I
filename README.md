@@ -1,20 +1,16 @@
 # 2026-VK-EDU-Web-08B09-Dobrynin-I
 
-## Запуск статической верстки
-Открыть [public/index.html](public/index.html) в браузере.
-
 ## Запуск Django проекта
 ```bash
 python manage.py runserver
 ```
 
 ## Страницы
-- `public/base.html` -- базовая верстка
-- `public/index.html`
-- `public/hot.html`
-- `public/tag.html`
-- `public/question.html`
-- `public/ask.html`
-- `public/login.html`
-- `public/signup.html`
-- `public/profile.html`
+- `http://127.0.0.1:8000/` - список новых вопросов
+- `http://127.0.0.1:8000/hot/` - список лучших вопросов
+- `http://127.0.0.1:8000/tag/bender/` - список вопросов по тегу
+- `http://127.0.0.1:8000/question/1/` - страница вопроса со списком ответов
+- `http://127.0.0.1:8000/ask/` - форма создания вопроса
+- `http://127.0.0.1:8000/login/` - форма логина
+- `http://127.0.0.1:8000/signup/` - форма регистрации
+- `http://127.0.0.1:8000/profile/` - форма редактирования профиля
