@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AskPupkin | Settings</title>
+    <link rel="icon" href="static/img/icon.png" type="image/png">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <div class="container py-3">
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-xl-3">
+            <a class="brand-link" href="index.html">
+              <span>AskPupkin</span>
+            </a>
+          </div>
+          <div class="col-12 col-md-7 col-xl-5">
+            <form class="d-flex gap-2" action="index.html">
+              <input class="form-control search-input" type="search" placeholder="Search">
+              <button class="btn btn-outline-accent flex-shrink-0" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col-12 col-md-5 col-xl-4">
+            <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-xl-end gap-3">
+              <a class="btn btn-accent" href="ask.html">ASK!</a>
+              <div class="d-flex align-items-center gap-3">
+                <img class="avatar avatar-sm" src="static/img/avatar.png" alt="Avatar">
+                <div>
+                  <div class="fw-semibold">Dr. Pepper</div>
+                  <div class="d-flex gap-2 small">
+                    <a href="profile.html">settings</a>
+                    <a href="login.html">log out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-4 py-lg-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-xl-8">
+            <section class="form-shell">
+              <h1 class="h2 mb-4">Settings: Dr. Pepper</h1>
+              <form action="profile.html" enctype="multipart/form-data">
+                <p class="text-danger mb-3">Profile was not saved. Fix the fields below.</p>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="settings-login">Login</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="settings-login" class="form-control" type="text" value="dr_pepper">
+                    <div class="form-text">Login is used for sign in.</div>
+                  </div>
+                </div>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="settings-email">Email</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="settings-email" class="form-control is-invalid" type="email" value="dr.pepper@mail.ru">
+                    <div class="invalid-feedback d-block">Email is already used by another account.</div>
+                  </div>
+                </div>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="settings-nickname">NickName</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="settings-nickname" class="form-control is-invalid" type="text" value="Dr. Pepper">
+                    <div class="form-text">Nickname is public.</div>
+                    <div class="invalid-feedback d-block">Nickname contains an error.</div>
+                  </div>
+                </div>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2">Upload avatar</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <div class="mb-3">
+                      <img class="avatar" src="static/img/avatar.png" alt="avatar">
+                    </div>
+                    <div class="d-flex gap-2">
+                      <input class="form-control" type="text" value="c:/avatar.jpg">
+                      <button class="btn btn-outline-accent" type="button">choose</button>
+                    </div>
+                    <div class="form-text">Upload JPG or PNG avatar.</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-9 offset-sm-3">
+                    <button class="btn btn-accent" type="submit">Save</button>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+
+          <div class="col-12 col-xl-4">
+            <div class="d-grid gap-4">
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Popular tags</h2>
+                <div class="tag-cloud">
+                  <a href="tag.html">perl</a>
+                  <a href="tag.html">python</a>
+                  <a href="tag.html">TechnoPark</a>
+                  <a href="tag.html">MySQL</a>
+                  <a href="tag.html">django</a>
+                  <a href="tag.html">Mail.Ru</a>
+                  <a href="tag.html">Voloshin</a>
+                  <a href="tag.html">Firefox</a>
+                </div>
+              </aside>
+
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Best members</h2>
+                <div class="member-list">
+                  <div class="member-item"><a href="index.html">Mr. Freeman</a></div>
+                  <div class="member-item"><a href="index.html">Dr. House</a></div>
+                  <div class="member-item"><a href="index.html">Bender</a></div>
+                  <div class="member-item"><a href="index.html">Queen Victoria</a></div>
+                  <div class="member-item"><a href="index.html">V. Pupkin</a></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-shell py-4">
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 muted-text">
+        <span>Footer</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AskPupkin | Hot Questions</title>
+    <link rel="icon" href="static/img/icon.png" type="image/png">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <div class="container py-3">
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-xl-3">
+            <a class="brand-link" href="index.html">
+              <span>AskPupkin</span>
+            </a>
+          </div>
+          <div class="col-12 col-md-7 col-xl-5">
+            <form class="d-flex gap-2" action="index.html">
+              <input class="form-control search-input" type="search" placeholder="Search">
+              <button class="btn btn-outline-accent flex-shrink-0" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col-12 col-md-5 col-xl-4">
+            <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-xl-end gap-3">
+              <a class="btn btn-accent" href="ask.html">ASK!</a>
+              <div class="d-flex align-items-center gap-2 gap-sm-3">
+                <a href="login.html">log in</a>
+                <a href="signup.html">register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-4 py-lg-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-xl-8">
+            <section class="content-card p-4 p-lg-5">
+              <div class="page-heading">
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                  <h1 class="h2 mb-0">Hot Questions</h1>
+                  <a href="index.html">New Questions</a>
+                </div>
+              </div>
+
+              <div class="d-grid gap-4">
+                <article class="question-card">
+                  <div class="d-flex gap-3 question-layout">
+                    <div>
+                      <img class="avatar mb-3" src="static/img/avatar.png" alt="avatar">
+                      <div class="vote-panel">
+                        <div class="vote-score">15</div>
+                        <div class="vote-buttons">
+                          <button class="vote-button is-active" type="button">+</button>
+                          <button class="vote-button" type="button">-</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h2 class="h4 mb-2 question-title-clamp"><a href="question.html">How to build a moon park ?</a></h2>
+                      <p class="mb-3 question-description-clamp">Guys, i have trouble with a moon park.<br>Can't find th black-jack...</p>
+                      <div class="d-flex flex-wrap gap-2 align-items-center question-meta">
+                        <a href="question.html">answer (3)</a>
+                        <span>asked 17.03.2026 20:00</span>
+                        <span class="d-inline-flex flex-wrap gap-2 align-items-center question-tags-group">
+                          <span class="question-tags-label">Tags:</span>
+                          <a href="tag.html">black-jack</a>
+                          <a href="tag.html">bender</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="question-card">
+                  <div class="d-flex gap-3 question-layout">
+                    <div>
+                      <img class="avatar mb-3" src="static/img/avatar.png" alt="avatar">
+                      <div class="vote-panel">
+                        <div class="vote-score">12</div>
+                        <div class="vote-buttons">
+                          <button class="vote-button" type="button">+</button>
+                          <button class="vote-button is-negative" type="button">-</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-grow-1">
+                      <h2 class="h4 mb-2 question-title-clamp"><a href="question.html">How to build a moon park ?</a></h2>
+                      <p class="mb-3 question-description-clamp">Guys, i have trouble with a moon park.<br>Can't find th black-jack...</p>
+                      <div class="d-flex flex-wrap gap-2 align-items-center question-meta">
+                        <a href="question.html">answer (3)</a>
+                        <span>asked 17.03.2026 20:00</span>
+                        <span class="d-inline-flex flex-wrap gap-2 align-items-center question-tags-group">
+                          <span class="question-tags-label">Tags:</span>
+                          <a href="tag.html">black-jack</a>
+                          <a href="tag.html">bender</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <nav class="mt-4" aria-label="Questions pagination">
+                <ul class="pagination mb-0 flex-wrap">
+                  <li class="page-item"><a class="page-link" href="hot.html">1</a></li>
+                  <li class="page-item"><a class="page-link" href="hot.html">2</a></li>
+                  <li class="page-item"><a class="page-link" href="hot.html">3</a></li>
+                  <li class="page-item"><span class="page-link">...</span></li>
+                  <li class="page-item"><a class="page-link" href="hot.html">53</a></li>
+                </ul>
+              </nav>
+            </section>
+          </div>
+
+          <div class="col-12 col-xl-4">
+            <div class="d-grid gap-4">
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Popular tags</h2>
+                <div class="tag-cloud">
+                  <a href="tag.html">perl</a>
+                  <a href="tag.html">python</a>
+                  <a href="tag.html">TechnoPark</a>
+                  <a href="tag.html">MySQL</a>
+                  <a href="tag.html">django</a>
+                  <a href="tag.html">Mail.Ru</a>
+                  <a href="tag.html">Voloshin</a>
+                  <a href="tag.html">Firefox</a>
+                </div>
+              </aside>
+
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Best members</h2>
+                <div class="member-list">
+                  <div class="member-item"><a href="index.html">Mr. Freeman</a></div>
+                  <div class="member-item"><a href="index.html">Dr. House</a></div>
+                  <div class="member-item"><a href="index.html">Bender</a></div>
+                  <div class="member-item"><a href="index.html">Queen Victoria</a></div>
+                  <div class="member-item"><a href="index.html">V. Pupkin</a></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-shell py-4">
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 muted-text">
+        <span>Footer</span>
+      </div>
+    </footer>
+  </body>
+</html>

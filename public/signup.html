@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AskPupkin | Registration</title>
+    <link rel="icon" href="static/img/icon.png" type="image/png">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <div class="container py-3">
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-xl-3">
+            <a class="brand-link" href="index.html">
+              <span>AskPupkin</span>
+            </a>
+          </div>
+          <div class="col-12 col-md-7 col-xl-5">
+            <form class="d-flex gap-2" action="index.html">
+              <input class="form-control search-input" type="search" placeholder="Search">
+              <button class="btn btn-outline-accent flex-shrink-0" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col-12 col-md-5 col-xl-4">
+            <div class="d-flex justify-content-xl-end gap-3">
+              <a href="login.html">log in</a>
+              <a href="signup.html">register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-4 py-lg-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-xl-8">
+            <section class="form-shell">
+              <h1 class="h2 mb-4">Registration</h1>
+              <form action="login.html" enctype="multipart/form-data">
+                <p class="text-danger mb-3">Sorry, this email address already registered!</p>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="reg-login">Login</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="reg-login" class="form-control" type="text" value="dr_pepper">
+                    <div class="form-text">Use 3 to 20 characters.</div>
+                  </div>
+                </div>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="reg-email">Email</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="reg-email" class="form-control is-invalid" type="email" value="dr.pepper@mail.ru">
+                    <div class="invalid-feedback d-block">This email is already registered.</div>
+                  </div>
+                </div>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="reg-nickname">NickName</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="reg-nickname" class="form-control" type="text" value="Dr. Pepper">
+                    <div class="form-text">Nickname is shown near your questions and answers.</div>
+                  </div>
+                </div>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="reg-password">Password</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="reg-password" class="form-control is-invalid" type="password" value="password">
+                    <div class="invalid-feedback d-block">Password must contain at least 8 characters.</div>
+                  </div>
+                </div>
+                <div class="row mb-3 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="reg-password-repeat">Repeat password</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <input id="reg-password-repeat" class="form-control is-invalid" type="password" value="passw0rd">
+                    <div class="invalid-feedback d-block">Passwords do not match.</div>
+                  </div>
+                </div>
+                <div class="row mb-4 align-items-start">
+                  <div class="col-12 col-sm-3">
+                    <label class="form-label mb-sm-0 pt-sm-2" for="reg-avatar">Upload avatar</label>
+                  </div>
+                  <div class="col-12 col-sm-9">
+                    <div class="d-flex gap-2">
+                      <input id="reg-avatar" class="form-control" type="text" value="c:/avatar.jpg">
+                      <button class="btn btn-outline-accent" type="button">choose</button>
+                    </div>
+                    <div class="form-text">Upload JPG or PNG avatar.</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-9 offset-sm-3">
+                    <button class="btn btn-accent" type="submit">Register!</button>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+
+          <div class="col-12 col-xl-4">
+            <div class="d-grid gap-4">
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Popular tags</h2>
+                <div class="tag-cloud">
+                  <a href="tag.html">perl</a>
+                  <a href="tag.html">python</a>
+                  <a href="tag.html">TechnoPark</a>
+                  <a href="tag.html">MySQL</a>
+                  <a href="tag.html">django</a>
+                  <a href="tag.html">Mail.Ru</a>
+                  <a href="tag.html">Voloshin</a>
+                  <a href="tag.html">Firefox</a>
+                </div>
+              </aside>
+
+              <aside class="sidebar-card p-4">
+                <h2 class="h5 mb-3">Best members</h2>
+                <div class="member-list">
+                  <div class="member-item"><a href="index.html">Mr. Freeman</a></div>
+                  <div class="member-item"><a href="index.html">Dr. House</a></div>
+                  <div class="member-item"><a href="index.html">Bender</a></div>
+                  <div class="member-item"><a href="index.html">Queen Victoria</a></div>
+                  <div class="member-item"><a href="index.html">V. Pupkin</a></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-shell py-4">
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 muted-text">
+        <span>Footer</span>
+      </div>
+    </footer>
+  </body>
+</html>
