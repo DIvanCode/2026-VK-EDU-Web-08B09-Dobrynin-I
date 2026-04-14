@@ -2,6 +2,7 @@
 
 ## Запуск Django проекта
 ```bash
+cp .env.example .env
 python manage.py runserver
 ```
 
