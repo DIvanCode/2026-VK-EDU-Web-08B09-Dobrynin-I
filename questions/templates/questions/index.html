@@ -16,15 +16,5 @@
     {% endfor %}
   </div>
 
-  <nav class="mt-4" aria-label="Questions pagination">
-    <ul class="pagination mb-0 flex-wrap">
-      {% for num in page_obj.paginator.page_range %}
-        {% if num == page_obj.number %}
-          <li class="page-item active"><span class="page-link">{{ num }}</span></li>
-        {% else %}
-          <li class="page-item"><a class="page-link" href="{% url 'questions:index' %}?page={{ num }}">{{ num }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
+  {% include "questions/includes/pagination.html" with page_obj=page_obj page_url_name="questions:index" aria_label="Questions pagination" %}
 {% endblock %}
