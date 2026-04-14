@@ -1,7 +1,7 @@
-{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}AskPupkin{% endblock %}</title>
@@ -52,7 +52,7 @@
               <aside class="sidebar-card p-4">
                 <h2 class="h5 mb-3">Popular tags</h2>
                 <div class="tag-cloud">
-                  {% for tag in popular_tags %}
+                  {% for tag in aside.popular_tags %}
                     <a href="{% url 'questions:tag' tag.slug %}">{{ tag.name }}</a>
                   {% endfor %}
                 </div>
@@ -61,7 +61,7 @@
               <aside class="sidebar-card p-4">
                 <h2 class="h5 mb-3">Best members</h2>
                 <div class="member-list">
-                  {% for member in best_members %}
+                  {% for member in aside.best_members %}
                     <div class="member-item"><a href="{% url 'questions:index' %}">{{ member }}</a></div>
                   {% endfor %}
                 </div>

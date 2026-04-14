@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from application.context import get_aside_context
 
 
 def paginate(objects_list, request, per_page=5):
@@ -31,23 +32,11 @@ def index(request):
                 ],
             }
         )
-    popular_tags = [
-        {"name": "perl", "slug": "perl"},
-        {"name": "python", "slug": "python"},
-        {"name": "TechnoPark", "slug": "technopark"},
-        {"name": "MySQL", "slug": "mysql"},
-        {"name": "django", "slug": "django"},
-        {"name": "Mail.Ru", "slug": "mail-ru"},
-        {"name": "Voloshin", "slug": "voloshin"},
-        {"name": "Firefox", "slug": "firefox"},
-    ]
-    best_members = ["Mr. Freeman", "Dr. House", "Bender", "Queen Victoria", "V. Pupkin"]
     page_obj = paginate(all_questions, request)
     context = {
         "questions": page_obj.object_list,
         "page_obj": page_obj,
-        "popular_tags": popular_tags,
-        "best_members": best_members,
+        "aside": get_aside_context(),
     }
     return render(request, "questions/index.html", context)
 
@@ -69,23 +58,11 @@ def hot(request):
                 ],
             }
         )
-    popular_tags = [
-        {"name": "perl", "slug": "perl"},
-        {"name": "python", "slug": "python"},
-        {"name": "TechnoPark", "slug": "technopark"},
-        {"name": "MySQL", "slug": "mysql"},
-        {"name": "django", "slug": "django"},
-        {"name": "Mail.Ru", "slug": "mail-ru"},
-        {"name": "Voloshin", "slug": "voloshin"},
-        {"name": "Firefox", "slug": "firefox"},
-    ]
-    best_members = ["Mr. Freeman", "Dr. House", "Bender", "Queen Victoria", "V. Pupkin"]
     page_obj = paginate(all_questions, request)
     context = {
         "questions": page_obj.object_list,
         "page_obj": page_obj,
-        "popular_tags": popular_tags,
-        "best_members": best_members,
+        "aside": get_aside_context(),
     }
     return render(request, "questions/hot.html", context)
 
@@ -107,24 +84,12 @@ def tag(request, tag_name):
                 ],
             }
         )
-    popular_tags = [
-        {"name": "perl", "slug": "perl"},
-        {"name": "python", "slug": "python"},
-        {"name": "TechnoPark", "slug": "technopark"},
-        {"name": "MySQL", "slug": "mysql"},
-        {"name": "django", "slug": "django"},
-        {"name": "Mail.Ru", "slug": "mail-ru"},
-        {"name": "Voloshin", "slug": "voloshin"},
-        {"name": "Firefox", "slug": "firefox"},
-    ]
-    best_members = ["Mr. Freeman", "Dr. House", "Bender", "Queen Victoria", "V. Pupkin"]
     page_obj = paginate(all_questions, request)
     context = {
         "tag_name": tag_name,
         "questions": page_obj.object_list,
         "page_obj": page_obj,
-        "popular_tags": popular_tags,
-        "best_members": best_members,
+        "aside": get_aside_context(),
     }
     return render(request, "questions/tag.html", context)
 
@@ -159,42 +124,18 @@ def question(request, question_id):
         },
     ]
     page_obj = paginate(all_answers, request)
-    popular_tags = [
-        {"name": "perl", "slug": "perl"},
-        {"name": "python", "slug": "python"},
-        {"name": "TechnoPark", "slug": "technopark"},
-        {"name": "MySQL", "slug": "mysql"},
-        {"name": "django", "slug": "django"},
-        {"name": "Mail.Ru", "slug": "mail-ru"},
-        {"name": "Voloshin", "slug": "voloshin"},
-        {"name": "Firefox", "slug": "firefox"},
-    ]
-    best_members = ["Mr. Freeman", "Dr. House", "Bender", "Queen Victoria", "V. Pupkin"]
     context = {
         "question_id": question_id,
         "question_item": question_item,
         "answers": page_obj.object_list,
         "page_obj": page_obj,
-        "popular_tags": popular_tags,
-        "best_members": best_members,
+        "aside": get_aside_context(),
     }
     return render(request, "questions/question.html", context)
 
 
 def ask(request):
-    popular_tags = [
-        {"name": "perl", "slug": "perl"},
-        {"name": "python", "slug": "python"},
-        {"name": "TechnoPark", "slug": "technopark"},
-        {"name": "MySQL", "slug": "mysql"},
-        {"name": "django", "slug": "django"},
-        {"name": "Mail.Ru", "slug": "mail-ru"},
-        {"name": "Voloshin", "slug": "voloshin"},
-        {"name": "Firefox", "slug": "firefox"},
-    ]
-    best_members = ["Mr. Freeman", "Dr. House", "Bender", "Queen Victoria", "V. Pupkin"]
     context = {
-        "popular_tags": popular_tags,
-        "best_members": best_members,
+        "aside": get_aside_context(),
     }
     return render(request, "questions/ask.html", context)
