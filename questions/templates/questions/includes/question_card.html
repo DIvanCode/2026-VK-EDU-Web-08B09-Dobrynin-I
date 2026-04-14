@@ -1,0 +1,29 @@
+{% load static %}
+<article class="question-card">
+  <div class="d-flex gap-3 question-layout">
+    <div>
+      <img class="avatar mb-3" src="{% static 'img/avatar.png' %}" alt="avatar">
+      <div class="vote-panel">
+        <div class="vote-score">{{ question.score }}</div>
+        <div class="vote-buttons">
+          <button class="vote-button" type="button">+</button>
+          <button class="vote-button" type="button">-</button>
+        </div>
+      </div>
+    </div>
+    <div class="flex-grow-1">
+      <h2 class="h4 mb-2 question-title-clamp"><a href="{% url 'questions:question' question.id %}">{{ question.title }}</a></h2>
+      <p class="mb-3 question-description-clamp">{{ question.text }}</p>
+      <div class="d-flex flex-wrap gap-2 align-items-center question-meta">
+        <a href="{% url 'questions:question' question.id %}">answer ({{ question.answers_count }})</a>
+        <span>asked {{ question.asked_at }}</span>
+        <span class="d-inline-flex flex-wrap gap-2 align-items-center question-tags-group">
+          <span class="question-tags-label">Tags:</span>
+          {% for tag in question.tags %}
+            <a href="{% url 'questions:tag' tag.slug %}">{{ tag.name }}</a>
+          {% endfor %}
+        </span>
+      </div>
+    </div>
+  </div>
+</article>

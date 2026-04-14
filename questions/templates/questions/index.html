@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+
+{% block title %}AskPupkin | New Questions{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <h1 class="h2 mb-0">New Questions</h1>
+      <a href="{% url 'questions:hot' %}">Hot Questions</a>
+    </div>
+  </div>
+
+  <div class="d-grid gap-4">
+    {% for question in questions %}
+      {% include "questions/includes/question_card.html" %}
+    {% endfor %}
+  </div>
+
+  {% include "questions/includes/pagination.html" with page_obj=page_obj page_url_name="questions:index" aria_label="Questions pagination" %}
+{% endblock %}

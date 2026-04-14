@@ -1,0 +1,48 @@
+{% extends "core/base.html" %}
+
+{% block title %}AskPupkin | Ask{% endblock %}
+
+{% block content %}
+  <section class="form-shell">
+    <h1 class="h2 mb-4">New Question</h1>
+    <form action="{% url 'questions:question' 35 %}">
+      <p class="text-danger mb-3">Question was not created. Fix errors below.</p>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-2">
+          <label class="form-label mb-sm-0 pt-sm-2" for="ask-title">Title</label>
+        </div>
+        <div class="col-12 col-sm-10">
+          <input id="ask-title" class="form-control is-invalid" type="text" value="How to build a moon park ?">
+          <div class="form-text">Use up to 100 characters.</div>
+          <div class="invalid-feedback d-block">Title is too short.</div>
+        </div>
+      </div>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-2">
+          <label class="form-label mb-sm-0 pt-sm-2" for="ask-text">Text</label>
+        </div>
+        <div class="col-12 col-sm-10">
+          <textarea id="ask-text" class="form-control" rows="8">Really, how ?
+Have no idea about it</textarea>
+          <div class="form-text">Describe the problem and what you already tried.</div>
+        </div>
+      </div>
+      <div class="row mb-4 align-items-start">
+        <div class="col-12 col-sm-2">
+          <label class="form-label mb-sm-0 pt-sm-2" for="ask-tags">Tags</label>
+        </div>
+        <div class="col-12 col-sm-10">
+          <input id="ask-tags" class="form-control is-invalid" type="text" value="moon, park, puzzle, extra">
+          <div class="form-text">Enter from 1 to 3 tags separated by commas.</div>
+          <div class="invalid-feedback d-block">No more than 3 tags allowed.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-10 offset-sm-2">
+          <button class="btn btn-accent" type="submit">ASK!</button>
+        </div>
+      </div>
+    </form>
+  </section>
+{% endblock %}
+

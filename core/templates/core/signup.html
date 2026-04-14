@@ -1,0 +1,75 @@
+{% extends "core/base.html" %}
+
+{% block title %}AskPupkin | Registration{% endblock %}
+
+{% block content %}
+  <section class="form-shell">
+    <h1 class="h2 mb-4">Registration</h1>
+    <form action="{% url 'core:login' %}" enctype="multipart/form-data">
+      <p class="text-danger mb-3">Sorry, this email address already registered!</p>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="reg-login">Login</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <input id="reg-login" class="form-control" type="text" value="dr_pepper">
+          <div class="form-text">Use 3 to 20 characters.</div>
+        </div>
+      </div>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="reg-email">Email</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <input id="reg-email" class="form-control is-invalid" type="email" value="dr.pepper@mail.ru">
+          <div class="invalid-feedback d-block">This email is already registered.</div>
+        </div>
+      </div>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="reg-nickname">NickName</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <input id="reg-nickname" class="form-control" type="text" value="Dr. Pepper">
+          <div class="form-text">Nickname is shown near your questions and answers.</div>
+        </div>
+      </div>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="reg-password">Password</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <input id="reg-password" class="form-control is-invalid" type="password" value="password">
+          <div class="invalid-feedback d-block">Password must contain at least 8 characters.</div>
+        </div>
+      </div>
+      <div class="row mb-3 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="reg-password-repeat">Repeat password</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <input id="reg-password-repeat" class="form-control is-invalid" type="password" value="passw0rd">
+          <div class="invalid-feedback d-block">Passwords do not match.</div>
+        </div>
+      </div>
+      <div class="row mb-4 align-items-start">
+        <div class="col-12 col-sm-3">
+          <label class="form-label mb-sm-0 pt-sm-2" for="reg-avatar">Upload avatar</label>
+        </div>
+        <div class="col-12 col-sm-9">
+          <div class="d-flex gap-2">
+            <input id="reg-avatar" class="form-control" type="text" value="c:/avatar.jpg">
+            <button class="btn btn-outline-accent" type="button">choose</button>
+          </div>
+          <div class="form-text">Upload JPG or PNG avatar.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-9 offset-sm-3">
+          <button class="btn btn-accent" type="submit">Register!</button>
+        </div>
+      </div>
+    </form>
+  </section>
+{% endblock %}
+
