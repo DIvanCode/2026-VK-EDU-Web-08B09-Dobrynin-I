@@ -21,10 +21,10 @@
         <p class="mb-3 question-description-clamp">{{ question_item.text }}</p>
         <div class="d-flex flex-wrap gap-2 align-items-center question-meta">
           <span>{{ question_item.answers_count }} answers</span>
-          <span>asked {{ question_item.asked_at }}</span>
+          <span>asked {{ question_item.created_at|date:"d.m.Y H:i" }}</span>
           <span class="d-inline-flex flex-wrap gap-2 align-items-center question-tags-group">
             <span class="question-tags-label">Tags:</span>
-            {% for tag in question_item.tags %}
+            {% for tag in question_item.tags.all %}
               <a href="{% url 'questions:tag' tag.slug %}">{{ tag.name }}</a>
             {% endfor %}
           </span>
@@ -51,7 +51,7 @@
           </div>
           <div class="flex-grow-1">
             <p class="mb-3">{{ answer.text }}</p>
-            <p class="mb-2 small text-body-secondary">answered {{ answer.answered_at }}</p>
+            <p class="mb-2 small text-body-secondary">answered {{ answer.created_at|date:"d.m.Y H:i" }}</p>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="correct-answer-{{ answer.id }}" {% if answer.is_correct %}checked{% endif %}>
               <label class="form-check-label" for="correct-answer-{{ answer.id }}">Correct!</label>

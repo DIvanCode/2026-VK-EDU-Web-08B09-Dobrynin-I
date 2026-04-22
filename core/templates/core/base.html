@@ -62,7 +62,7 @@
                 <h2 class="h5 mb-3">Best members</h2>
                 <div class="member-list">
                   {% for member in aside.best_members %}
-                    <div class="member-item"><a href="{% url 'questions:index' %}">{{ member }}</a></div>
+                    <div class="member-item"><a href="{% url 'questions:index' %}">{{ member.user.username }}</a></div>
                   {% endfor %}
                 </div>
               </aside>

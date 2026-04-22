@@ -16,10 +16,10 @@
       <p class="mb-3 question-description-clamp">{{ question.text }}</p>
       <div class="d-flex flex-wrap gap-2 align-items-center question-meta">
         <a href="{% url 'questions:question' question.id %}">answer ({{ question.answers_count }})</a>
-        <span>asked {{ question.asked_at }}</span>
+        <span>asked {{ question.created_at|date:"d.m.Y H:i" }}</span>
         <span class="d-inline-flex flex-wrap gap-2 align-items-center question-tags-group">
           <span class="question-tags-label">Tags:</span>
-          {% for tag in question.tags %}
+          {% for tag in question.tags.all %}
             <a href="{% url 'questions:tag' tag.slug %}">{{ tag.name }}</a>
           {% endfor %}
         </span>
