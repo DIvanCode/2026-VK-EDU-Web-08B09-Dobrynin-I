@@ -1,6 +1,7 @@
-from django.shortcuts import render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404, render
 from application.context import get_aside_context
+from .models import Answer, Question
 
 
 def paginate(objects_list, request, per_page=5):
@@ -16,22 +17,7 @@ def paginate(objects_list, request, per_page=5):
 
 
 def index(request):
-    all_questions = []
-    for i in range(1, 31):
-        all_questions.append(
-            {
-                "id": i,
-                "title": "How to build a moon park ?",
-                "text": "Guys, i have trouble with a moon park.\nCan't find th black-jack...",
-                "score": 5,
-                "answers_count": 3,
-                "asked_at": "17.03.2026 20:00",
-                "tags": [
-                    {"name": "black-jack", "slug": "black-jack"},
-                    {"name": "bender", "slug": "bender"},
-                ],
-            }
-        )
+    all_questions = Question.objects.new()
     page_obj = paginate(all_questions, request)
     context = {
         "questions": page_obj.object_list,
@@ -42,22 +28,7 @@ def index(request):
 
 
 def hot(request):
-    all_questions = []
-    for i in range(1, 11):
-        all_questions.append(
-            {
-                "id": i,
-                "title": "How to build a moon park ?",
-                "text": "Guys, i have trouble with a moon park.\nCan't find th black-jack...",
-                "score": 20 - i,
-                "answers_count": 3,
-                "asked_at": "17.03.2026 20:00",
-                "tags": [
-                    {"name": "black-jack", "slug": "black-jack"},
-                    {"name": "bender", "slug": "bender"},
-                ],
-            }
-        )
+    all_questions = Question.objects.hot()
     page_obj = paginate(all_questions, request)
     context = {
         "questions": page_obj.object_list,
@@ -68,22 +39,7 @@ def hot(request):
 
 
 def tag(request, tag_name):
-    all_questions = []
-    for i in range(1, 31):
-        all_questions.append(
-            {
-                "id": i,
-                "title": "How to build a moon park ?",
-                "text": "Guys, i have trouble with a moon park.\nCan't find th black-jack...",
-                "score": 5,
-                "answers_count": 3,
-                "asked_at": "17.03.2026 20:00",
-                "tags": [
-                    {"name": "black-jack", "slug": "black-jack"},
-                    {"name": "bender", "slug": "bender"},
-                ],
-            }
-        )
+    all_questions = Question.objects.by_tag(tag_name)
     page_obj = paginate(all_questions, request)
     context = {
         "tag_name": tag_name,
@@ -95,34 +51,8 @@ def tag(request, tag_name):
 
 
 def question(request, question_id):
-    question_item = {
-        "id": question_id,
-        "title": "How to build a moon park ?",
-        "text": "Lorem ipsum &mdash; dolor sit amet, consectetuler adipisicing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.",
-        "score": 5,
-        "answers_count": 3,
-        "asked_at": "17.03.2026 20:00",
-        "tags": [
-            {"name": "black-jack", "slug": "black-jack"},
-            {"name": "bender", "slug": "bender"},
-        ],
-    }
-    all_answers = [
-        {
-            "id": 1,
-            "text": "First of all I would like to thank you for the invitation to participate in such a ... Russia is the huge territory which in many respects needs to be render habitable.",
-            "score": 5,
-            "answered_at": "17.03.2026 20:00",
-            "is_correct": True,
-        },
-        {
-            "id": 2,
-            "text": "First of all I would like to thank you for the invitation to participate in such a ... Russia is the huge territory which in many respects needs to be render habitable.",
-            "score": 3,
-            "answered_at": "17.03.2026 20:00",
-            "is_correct": False,
-        },
-    ]
+    question_item = get_object_or_404(Question.objects.with_counters(), id=question_id)
+    all_answers = Answer.objects.for_question(question_id)
     page_obj = paginate(all_answers, request)
     context = {
         "question_id": question_id,

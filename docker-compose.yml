@@ -1,0 +1,65 @@
+networks:
+  dev:
+    name: dev
+    driver: bridge
+
+volumes:
+  postgres:
+  media:
+
+services:
+  db:
+    image: postgres:17.7
+    container_name: db
+    environment:
+      POSTGRES_DB: django
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: django
+    ports:
+      - "5432:5432"
+    networks:
+      - dev
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U django -d django"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  migration:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: migration
+    command: python manage.py migrate
+    environment:
+      ENVIRONMENT: docker
+    networks:
+      - dev
+    volumes:
+      - .:/app
+      - media:/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    environment:
+      ENVIRONMENT: docker
+    ports:
+      - "8000:8000"
+    networks:
+      - dev
+    volumes:
+      - .:/app
+      - media:/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+      migration:
+        condition: service_completed_successfully
