@@ -5,24 +5,35 @@
 {% block content %}
   <section class="form-shell">
     <h1 class="h2 mb-4">Log In</h1>
-    <form action="{% url 'questions:index' %}">
-      <p class="text-danger mb-3">Sorry, wrong password!</p>
+    <form action="{% url 'core:login' %}" method="post">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+        <div class="text-danger mb-3">
+          {% for error in form.non_field_errors %}
+            <div>{{ error }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
       <div class="row mb-3 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="login-name">Login</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.login.id_for_label }}">Login</label>
         </div>
         <div class="col-12 col-sm-9">
-          <input id="login-name" class="form-control is-invalid" type="text" value="Enter your login here">
-          <div class="invalid-feedback d-block">Enter a valid login.</div>
+          {{ form.login }}
+          {% for error in form.login.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row mb-4 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="login-pass">Password</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.password.id_for_label }}">Password</label>
         </div>
         <div class="col-12 col-sm-9">
-          <input id="login-pass" class="form-control is-invalid" type="password" value="password">
-          <div class="invalid-feedback d-block">Password is incorrect.</div>
+          {{ form.password }}
+          {% for error in form.password.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row">
