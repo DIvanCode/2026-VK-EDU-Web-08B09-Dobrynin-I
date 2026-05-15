@@ -5,63 +5,82 @@
 {% block content %}
   <section class="form-shell">
     <h1 class="h2 mb-4">Registration</h1>
-    <form action="{% url 'core:login' %}" enctype="multipart/form-data">
-      <p class="text-danger mb-3">Sorry, this email address already registered!</p>
+    <form action="{% url 'core:signup' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+        <div class="text-danger mb-3">
+          {% for error in form.non_field_errors %}
+            <div>{{ error }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
       <div class="row mb-3 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="reg-login">Login</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.login.id_for_label }}">Login</label>
         </div>
         <div class="col-12 col-sm-9">
-          <input id="reg-login" class="form-control" type="text" value="dr_pepper">
+          {{ form.login }}
           <div class="form-text">Use 3 to 20 characters.</div>
+          {% for error in form.login.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row mb-3 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="reg-email">Email</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.email.id_for_label }}">Email</label>
         </div>
         <div class="col-12 col-sm-9">
-          <input id="reg-email" class="form-control is-invalid" type="email" value="dr.pepper@mail.ru">
-          <div class="invalid-feedback d-block">This email is already registered.</div>
+          {{ form.email }}
+          {% for error in form.email.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row mb-3 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="reg-nickname">NickName</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.nickname.id_for_label }}">NickName</label>
         </div>
         <div class="col-12 col-sm-9">
-          <input id="reg-nickname" class="form-control" type="text" value="Dr. Pepper">
+          {{ form.nickname }}
           <div class="form-text">Nickname is shown near your questions and answers.</div>
+          {% for error in form.nickname.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row mb-3 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="reg-password">Password</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.password1.id_for_label }}">Password</label>
         </div>
         <div class="col-12 col-sm-9">
-          <input id="reg-password" class="form-control is-invalid" type="password" value="password">
-          <div class="invalid-feedback d-block">Password must contain at least 8 characters.</div>
+          {{ form.password1 }}
+          {% for error in form.password1.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row mb-3 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="reg-password-repeat">Repeat password</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.password2.id_for_label }}">Repeat password</label>
         </div>
         <div class="col-12 col-sm-9">
-          <input id="reg-password-repeat" class="form-control is-invalid" type="password" value="passw0rd">
-          <div class="invalid-feedback d-block">Passwords do not match.</div>
+          {{ form.password2 }}
+          {% for error in form.password2.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row mb-4 align-items-start">
         <div class="col-12 col-sm-3">
-          <label class="form-label mb-sm-0 pt-sm-2" for="reg-avatar">Upload avatar</label>
+          <label class="form-label mb-sm-0 pt-sm-2" for="{{ form.avatar.id_for_label }}">Upload avatar</label>
         </div>
         <div class="col-12 col-sm-9">
-          <div class="d-flex gap-2">
-            <input id="reg-avatar" class="form-control" type="text" value="c:/avatar.jpg">
-            <button class="btn btn-outline-accent" type="button">choose</button>
-          </div>
+          {{ form.avatar }}
           <div class="form-text">Upload JPG or PNG avatar.</div>
+          {% for error in form.avatar.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+          {% endfor %}
         </div>
       </div>
       <div class="row">
